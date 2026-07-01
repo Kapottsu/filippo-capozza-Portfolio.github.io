@@ -296,6 +296,113 @@
   .sk-vsc     .skill-fill { background: linear-gradient(90deg, #60a5fa, #7c3aed); }
   .sk-fl      .skill-fill { background: linear-gradient(90deg, #a78bfa, #ec4899); }
 
+  /* ── SHOWCASE (vidéos) ── */
+  #showcase { background: var(--surface); }
+
+  .showcase-intro {
+    color: var(--muted); font-size: 1.02rem; line-height: 1.75;
+    max-width: 640px; margin-bottom: 3rem;
+  }
+
+  .showcase-subhead {
+    font-family: 'Space Mono', monospace; font-size: 0.68rem;
+    color: var(--violet-l); letter-spacing: 0.15em; text-transform: uppercase;
+    margin: 0 0 1.2rem; display: flex; align-items: center; gap: 0.7rem;
+  }
+  .showcase-subhead::after {
+    content: ''; flex: 1; height: 1px; background: var(--border);
+  }
+
+  .videos-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem; margin-bottom: 3.5rem;
+  }
+
+  .video-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  }
+  .video-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(124,58,237,0.2);
+    border-color: var(--border2);
+  }
+
+  .video-frame {
+    position: relative; width: 100%; aspect-ratio: 16 / 9;
+    background: #000;
+  }
+  .video-frame iframe {
+    position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+  }
+
+  .video-body { padding: 1.2rem 1.4rem; }
+  .video-title { font-weight: 700; font-size: 1rem; margin-bottom: 0.35rem; }
+  .video-desc { color: var(--muted); font-size: 0.86rem; line-height: 1.6; }
+
+  .shorts-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .short-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  }
+  .short-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(124,58,237,0.2);
+    border-color: var(--border2);
+  }
+
+  .short-frame {
+    position: relative; width: 100%; aspect-ratio: 9 / 16;
+    background: #000; max-height: 500px; margin: 0 auto;
+  }
+  .short-frame iframe {
+    position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+  }
+
+  .bts-block {
+    display: grid; grid-template-columns: 1.1fr 0.9fr;
+    gap: 2.5rem; align-items: center;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 1.4rem; margin-top: 3.5rem;
+  }
+  .bts-image {
+    border-radius: 10px; overflow: hidden;
+    border: 1px solid var(--border2);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+  .bts-image img { display: block; width: 100%; height: auto; }
+  .bts-text { padding: 0.5rem 1rem 0.5rem 0; }
+  .bts-text .video-title { font-size: 1.2rem; margin-bottom: 0.7rem; }
+  .bts-text p {
+    color: var(--muted); font-size: 0.92rem; line-height: 1.7;
+  }
+
+  @media (max-width: 860px) {
+    .bts-block { grid-template-columns: 1fr; padding: 1rem; }
+    .bts-text { padding: 0 0.2rem; }
+  }
+
+  .video-frame, .short-frame { position: relative; }
+  .video-frame video, .short-frame video {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; background: #000;
+  }
+  .video-caption {
+    padding: 0.9rem 1.4rem 1.1rem;
+    font-size: 0.82rem; color: var(--muted);
+  }
+  .video-caption a {
+    color: var(--violet-l); text-decoration: none; font-weight: 700;
+  }
+  .video-caption a:hover { text-decoration: underline; }
+  .video-title { font-weight: 700; font-size: 0.95rem; padding: 1.1rem 1.4rem 0; }
+
   /* ── PROJECTS ── */
   #projects { background: var(--surface); }
 
@@ -460,6 +567,7 @@
   <ul class="nav-links">
     <li><a href="#about">À propos</a></li>
     <li><a href="#skills">Compétences</a></li>
+    <li><a href="#showcase">Extraits</a></li>
     <li><a href="#projects">Projets</a></li>
     <li><a href="#platforms">Plateformes</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -485,7 +593,7 @@
         Créateur de contenu depuis 2023, je monte, je colorie, je crée — et je ne m'arrête pas.
       </p>
       <div class="hero-ctas">
-        <a href="#projects" class="btn-primary">▶ Voir mes projets</a>
+        <a href="#showcase" class="btn-primary">▶ Voir mes vidéos</a>
         <a href="#contact" class="btn-secondary">Me contacter</a>
       </div>
     </div>
@@ -647,10 +755,78 @@
   </div>
 </section>
 
+<!-- SHOWCASE -->
+<section id="showcase">
+  <div class="section-inner">
+    <div class="section-label">// 03 — Extraits</div>
+    <h2>CE QUE JE MONTE</h2>
+    <p class="showcase-intro fade-in">
+      Plutôt que de décrire mon montage, je préfère le montrer. Voici une sélection
+      de vidéos réellement montées et publiées — du format long au format vertical.
+    </p>
+
+    <div class="showcase-subhead fade-in">Formats longs</div>
+    <div class="videos-grid fade-in">
+
+      <div class="video-card">
+        <div class="video-frame">
+          <video controls preload="metadata" playsinline>
+            <source src="videos/subnautica.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-caption">Pour une meilleure qualité, disponible <a href="https://youtu.be/Gv7B4h2S-8w" target="_blank">sur YouTube →</a></div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-frame">
+          <video controls preload="metadata" playsinline>
+            <source src="videos/horreur.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-caption">Pour une meilleure qualité, disponible <a href="https://youtu.be/3Mlx8qYLmDY" target="_blank">sur YouTube →</a></div>
+      </div>
+
+    </div>
+
+    <div class="showcase-subhead fade-in">Formats courts</div>
+    <div class="shorts-grid fade-in">
+
+      <div class="short-card">
+        <div class="short-frame">
+          <video controls preload="metadata" playsinline>
+            <source src="videos/ost-undertale.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-caption">Pour une meilleure qualité, disponible <a href="https://youtube.com/shorts/xca3NZR4-yI" target="_blank">sur YouTube →</a></div>
+      </div>
+
+      <div class="short-card">
+        <div class="short-frame">
+          <video controls preload="metadata" playsinline>
+            <source src="videos/live-aleatoire.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-caption">Pour une meilleure qualité, disponible <a href="https://youtube.com/shorts/jDea9whR5Vg" target="_blank">sur YouTube →</a></div>
+      </div>
+
+    </div>
+
+    <div class="bts-block fade-in">
+      <div class="bts-image">
+        <img src="davinci-workspace.jpg" alt="Espace de travail DaVinci Resolve — timeline de montage de Filippo Capozza" loading="lazy">
+      </div>
+      <div class="bts-text">
+        <div class="video-title">Dans les coulisses du montage</div>
+        <p>Une timeline DaVinci Resolve telle qu'elle existe vraiment sur mon poste : incrustation webcam, HUD de jeu, overlay de chat et mixage audio gérés en simultané sur plusieurs pistes. C'est là que tout se joue avant l'export.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PROJECTS -->
 <section id="projects">
   <div class="section-inner">
-    <div class="section-label">// 03 — Réalisations</div>
+    <div class="section-label">// 04 — Réalisations</div>
     <h2>PROJETS</h2>
     <div class="projects-grid fade-in">
 
@@ -717,7 +893,7 @@
 <!-- PLATFORMS -->
 <section id="platforms">
   <div class="section-inner">
-    <div class="section-label">// 04 — Présence en ligne</div>
+    <div class="section-label">// 05 — Présence en ligne</div>
     <h2>PLATEFORMES</h2>
     <div class="platforms-grid fade-in">
       <a href="https://www.youtube.com/@Kapottsu" target="_blank" class="platform-card yt">
@@ -747,7 +923,7 @@
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-inner">
-    <div class="section-label">// 05 — Me rejoindre</div>
+    <div class="section-label">// 06 — Me rejoindre</div>
     <h2>CONTACT</h2>
     <div class="contact-grid fade-in">
 
